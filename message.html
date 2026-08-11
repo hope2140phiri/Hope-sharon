@@ -1,0 +1,614 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Messages - Hope & Sharon</title><style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding-bottom: 70px;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    height: 60px;
+
+    background: #ff1493;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+.back {
+    font-size: 28px;
+
+    margin-right: 15px;
+
+    cursor: pointer;
+}
+
+.title {
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+
+/* SEARCH */
+
+.search {
+    background: white;
+
+    padding: 12px;
+}
+
+.search input {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: #f0f2f5;
+
+    border-radius: 22px;
+
+    padding: 12px 15px;
+
+    font-size: 15px;
+}
+
+
+/* CHAT LIST */
+
+.chat-list {
+    background: white;
+}
+
+.chat {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 15px;
+
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+}
+
+.chat:hover {
+    background: #f7f7f7;
+}
+
+.avatar {
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    background: #eee;
+}
+
+.chat-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.chat-name {
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.chat-preview {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.chat-time {
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* EMPTY */
+
+.empty {
+    background: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #777;
+}
+
+.empty-icon {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 60px;
+
+    background: white;
+
+    border-top: 1px solid #ddd;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    z-index: 100;
+}
+
+.nav-item {
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+.nav-item span {
+    display: block;
+
+    font-size: 22px;
+}
+
+.nav-item.active {
+    color: #ff1493;
+
+    font-weight: bold;
+}
+
+</style></head><body><!-- TOP BAR --><div class="topbar"><div
+    class="back"
+    onclick="location.href='home.html'">
+
+    ←
+
+</div>
+
+
+<div class="title">
+
+   <div style="position:relative;">
+
+    Messages 💬
+
+    <span
+        id="messageBadge"
+        style="
+            display:none;
+            position:absolute;
+            top:-10px;
+            right:-25px;
+            background:red;
+            color:white;
+            border-radius:50%;
+            min-width:20px;
+            height:20px;
+            font-size:11px;
+            align-items:center;
+            justify-content:center;
+            padding:2px;
+        ">
+        0
+    </span>
+
+</div>
+
+</div>
+
+</div><!-- SEARCH --><div class="search"><input
+    id="searchInput"
+    type="text"
+    placeholder="Search friends...">
+
+</div><!-- CHAT LIST --><div
+    id="chatList"
+    class="chat-list">
+</div><!-- BOTTOM NAV --><div class="bottom-nav"><div
+    class="nav-item"
+    onclick="location.href='home.html'">
+
+    <span>🏠</span>
+
+    Home
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='friends.html'">
+
+    <span>👥</span>
+
+    Friends
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='create.html'">
+
+    <span>➕</span>
+
+    Create
+
+</div>
+
+
+<div class="nav-item active">
+
+    <span>💬</span>
+
+    Messages
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='profile.html'">
+
+    <span>👤</span>
+
+    Profile
+
+</div>
+
+</div><script>
+
+
+/* GET FRIENDS */
+
+function getFriends() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "hopeSharonFriends"
+        ) || "[]"
+
+    );
+
+}
+
+
+/* GET MESSAGES */
+
+function getMessages(friendId) {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "hopeSharonMessages_" +
+            friendId
+        ) || "[]"
+
+    );
+
+}
+
+
+/* LOAD CHAT LIST */
+
+function loadChats() {
+
+    const container =
+        document.getElementById(
+            "chatList"
+        );
+
+
+    const friends =
+        getFriends();
+
+
+    container.innerHTML = "";
+
+
+    if (friends.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    💬
+                </div>
+
+                <h3>
+                    No conversations yet
+                </h3>
+
+                <p style="margin-top:8px;">
+                    Add a friend to start chatting.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    friends.forEach(
+        function(friend) {
+
+            const messages =
+                getMessages(friend.id);
+
+
+            const lastMessage =
+                messages.length > 0
+                ? messages[messages.length - 1]
+                : null;
+
+
+            const chat =
+                document.createElement(
+                    "div"
+                );
+
+
+            chat.className =
+                "chat";
+
+
+            chat.onclick =
+                function() {
+
+                    location.href =
+                        "chat.html?id=" +
+                        friend.id;
+
+                };
+
+
+            const photo =
+                friend.photo ||
+                "background.jpg";
+
+
+            const preview =
+                lastMessage
+                ? lastMessage.text
+                : "Start a conversation ❤️";
+
+
+            const time =
+                lastMessage
+                ? lastMessage.time
+                : "";
+
+
+            chat.innerHTML = `
+
+                <img
+                    src="${photo}"
+                    class="avatar">
+
+
+                <div class="chat-info">
+
+                    <div class="chat-name">
+
+                        ${escapeHTML(
+                            friend.name
+                        )}
+
+                    </div>
+
+
+                    <div class="chat-preview">
+
+                        ${escapeHTML(
+                            preview
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <div class="chat-time">
+
+                    ${escapeHTML(
+                        time
+                    )}
+
+                </div>
+
+            `;
+
+
+            container.appendChild(chat);
+
+        }
+    );
+
+}
+
+
+/* SEARCH */
+
+document.getElementById(
+    "searchInput"
+).addEventListener(
+    "input",
+    function() {
+
+        const search =
+            this.value
+            .toLowerCase()
+            .trim();
+
+
+        const chats =
+            document.querySelectorAll(
+                ".chat"
+            );
+
+
+        chats.forEach(
+            function(chat) {
+
+                const name =
+                    chat.querySelector(
+                        ".chat-name"
+                    )
+                    .textContent
+                    .toLowerCase();
+
+
+                chat.style.display =
+                    name.includes(search)
+                    ? "flex"
+                    : "none";
+
+            }
+        );
+
+    }
+);
+
+
+/* ESCAPE */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* START */
+
+loadChats();
+
+</script></body></html>
+<script>
+
+function updateMessageBadge() {
+
+    const friends =
+        JSON.parse(
+            localStorage.getItem(
+                "hopeSharonFriends"
+            ) || "[]"
+        );
+
+    let total = 0;
+
+    friends.forEach(function(friend) {
+
+        const messages =
+            JSON.parse(
+                localStorage.getItem(
+                    "hopeSharonMessages_" +
+                    friend.id
+                ) || "[]"
+            );
+
+        total += messages.filter(
+            function(message) {
+
+                return message.sender === "friend";
+
+            }
+        ).length;
+
+    });
+
+
+    const badge =
+        document.getElementById(
+            "messageBadge"
+        );
+
+
+    if (total > 0) {
+
+        badge.textContent =
+            total > 99 ? "99+" : total;
+
+        badge.style.display =
+            "flex";
+
+    } else {
+
+        badge.style.display =
+            "none";
+
+    }
+
+}
+
+
+updateMessageBadge();
+
+</script>

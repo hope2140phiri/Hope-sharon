@@ -1,0 +1,931 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Friends - Hope & Sharon</title><style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding-bottom: 70px;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    height: 60px;
+    background: #ff1493;
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back {
+    font-size: 28px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+/* HEADER */
+
+.friends-header {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.friends-icon {
+    font-size: 45px;
+    margin-bottom: 5px;
+}
+
+.friend-count {
+    color: #777;
+    margin-top: 5px;
+}
+
+
+/* SECTION */
+
+.section-title {
+    background: white;
+    padding: 15px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+/* FRIEND CARD */
+
+.friend-card {
+    background: white;
+
+    padding: 12px 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.friend-avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.friend-info {
+    flex: 1;
+}
+
+.friend-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.friend-status {
+    color: #777;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+
+/* BUTTONS */
+
+.buttons {
+    display: flex;
+    gap: 6px;
+}
+
+button {
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 8px 12px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.accept {
+    background: #ff1493;
+    color: white;
+}
+
+.reject,
+.remove {
+    background: #eee;
+    color: #333;
+}
+
+
+/* ADD FRIEND */
+
+.add-section {
+    background: white;
+
+    margin-top: 10px;
+
+    padding: 15px;
+}
+
+.add-input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 20px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    margin-top: 10px;
+}
+
+.add-button {
+    width: 100%;
+
+    margin-top: 10px;
+
+    background: #ff1493;
+
+    color: white;
+
+    padding: 12px;
+}
+
+
+/* EMPTY */
+
+.empty {
+    background: white;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    color: #777;
+}
+
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 60px;
+
+    background: white;
+
+    border-top: 1px solid #ddd;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    z-index: 100;
+}
+
+.nav-item {
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+.nav-item span {
+    display: block;
+
+    font-size: 22px;
+}
+
+.nav-item.active {
+    color: #ff1493;
+
+    font-weight: bold;
+}
+
+</style></head><body><!-- TOP BAR --><div class="topbar"><div
+    class="back"
+    onclick="location.href='home.html'">
+
+    ←
+
+</div>
+
+
+<div class="title">
+
+    Friends 👥
+
+</div>
+
+</div><!-- HEADER --><div class="friends-header"><div class="friends-icon">
+    👥
+</div>
+
+<h2>
+    Hope & Sharon Friends
+</h2>
+
+<p class="friend-count">
+
+    <span id="friendCount">0</span>
+    Friends
+
+</p>
+
+</div><!-- FRIEND REQUESTS --><div class="section-title">Friend Requests
+
+</div><div id="requests"></div><!-- FRIENDS --><div class="section-title">My Friends
+
+</div><div id="friends"></div><!-- ADD FRIEND --><div class="add-section"><h3>
+    Add a Friend 👤
+</h3>
+
+
+<input
+    id="friendName"
+    class="add-input"
+    type="text"
+    placeholder="Enter friend's name">
+
+
+<button
+    class="add-button"
+    onclick="sendRequest()">
+
+    ➕ Send Friend Request
+
+</button>
+
+</div><!-- BOTTOM NAV --><div class="bottom-nav"><div
+    class="nav-item"
+    onclick="location.href='home.html'">
+
+    <span>🏠</span>
+
+    Home
+
+</div>
+
+
+<div class="nav-item active">
+
+    <span>👥</span>
+
+    Friends
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='create.html'">
+
+    <span>➕</span>
+
+    Create
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='message.html'">
+
+    <span>💬</span>
+
+    Messages
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='profile.html'">
+
+    <span>👤</span>
+
+    Profile
+
+</div>
+
+</div><script>
+
+
+/* GET REQUESTS */
+
+function getRequests() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "hopeSharonRequests"
+        ) || "[]"
+
+    );
+
+}
+
+
+/* GET FRIENDS */
+
+function getFriends() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "hopeSharonFriends"
+        ) || "[]"
+
+    );
+
+}
+
+
+/* SAVE REQUESTS */
+
+function saveRequests(requests) {
+
+    localStorage.setItem(
+
+        "hopeSharonRequests",
+
+        JSON.stringify(requests)
+
+    );
+
+}
+
+
+/* SAVE FRIENDS */
+
+function saveFriends(friends) {
+
+    localStorage.setItem(
+
+        "hopeSharonFriends",
+
+        JSON.stringify(friends)
+
+    );
+
+}
+
+
+/* NOTIFICATION */
+
+function addFriendNotification(text) {
+
+    const notifications =
+        JSON.parse(
+
+            localStorage.getItem(
+                "hopeSharonNotifications"
+            ) || "[]"
+
+        );
+
+
+    notifications.unshift({
+
+        text: text,
+
+        time:
+            new Date()
+            .toLocaleString()
+
+    });
+
+
+    localStorage.setItem(
+
+        "hopeSharonNotifications",
+
+        JSON.stringify(
+            notifications
+        )
+
+    );
+
+}
+
+
+/* SEND FRIEND REQUEST */
+
+function sendRequest() {
+
+    const input =
+        document.getElementById(
+            "friendName"
+        );
+
+
+    const name =
+        input.value.trim();
+
+
+    if (!name) {
+
+        alert(
+            "Please enter a friend's name."
+        );
+
+        return;
+
+    }
+
+
+    const friends =
+        getFriends();
+
+
+    const requests =
+        getRequests();
+
+
+    const existsFriend =
+        friends.some(
+            function(friend) {
+
+                return friend.name
+                    .toLowerCase()
+                    === name.toLowerCase();
+
+            }
+        );
+
+
+    const existsRequest =
+        requests.some(
+            function(request) {
+
+                return request.name
+                    .toLowerCase()
+                    === name.toLowerCase();
+
+            }
+        );
+
+
+    if (
+        existsFriend ||
+        existsRequest
+    ) {
+
+        alert(
+            "This person is already added or has a pending request."
+        );
+
+        return;
+
+    }
+
+
+    requests.push({
+
+        id: Date.now(),
+
+        name: name,
+
+        time:
+            new Date()
+            .toLocaleString()
+
+    });
+
+
+    saveRequests(requests);
+
+
+    addFriendNotification(
+
+        "You sent a friend request to "
+        + name
+        + " ❤️"
+
+    );
+
+
+    input.value = "";
+
+
+    alert(
+
+        "Friend request sent to "
+        + name
+        + " ❤️"
+
+    );
+
+
+    loadFriends();
+
+}
+
+
+/* ACCEPT REQUEST */
+
+function acceptRequest(id) {
+
+    let requests =
+        getRequests();
+
+
+    const request =
+        requests.find(
+            function(item) {
+
+                return item.id === id;
+
+            }
+        );
+
+
+    if (!request) return;
+
+
+    const friends =
+        getFriends();
+
+
+    friends.push({
+
+        id: Date.now(),
+
+        name: request.name,
+
+        time:
+            new Date()
+            .toLocaleString()
+
+    });
+
+
+    requests =
+        requests.filter(
+            function(item) {
+
+                return item.id !== id;
+
+            }
+        );
+
+
+    saveRequests(requests);
+
+    saveFriends(friends);
+
+
+    addFriendNotification(
+
+        request.name
+        + " is now your friend ❤️"
+
+    );
+
+
+    loadFriends();
+
+}
+
+
+/* REJECT REQUEST */
+
+function rejectRequest(id) {
+
+    let requests =
+        getRequests();
+
+
+    requests =
+        requests.filter(
+            function(item) {
+
+                return item.id !== id;
+
+            }
+        );
+
+
+    saveRequests(requests);
+
+
+    loadFriends();
+
+}
+
+
+/* REMOVE FRIEND */
+
+function removeFriend(id) {
+
+    const confirmed =
+        confirm(
+            "Remove this friend?"
+        );
+
+
+    if (!confirmed) return;
+
+
+    let friends =
+        getFriends();
+
+
+    friends =
+        friends.filter(
+            function(friend) {
+
+                return friend.id !== id;
+
+            }
+        );
+
+
+    saveFriends(friends);
+
+
+    loadFriends();
+
+}
+
+
+/* LOAD FRIENDS */
+
+function loadFriends() {
+
+    const requests =
+        getRequests();
+
+
+    const friends =
+        getFriends();
+
+
+    const requestBox =
+        document.getElementById(
+            "requests"
+        );
+
+
+    const friendsBox =
+        document.getElementById(
+            "friends"
+        );
+
+
+    const count =
+        document.getElementById(
+            "friendCount"
+        );
+
+
+    count.textContent =
+        friends.length;
+
+
+    requestBox.innerHTML = "";
+
+    friendsBox.innerHTML = "";
+
+
+    /* REQUESTS */
+
+    if (requests.length === 0) {
+
+        requestBox.innerHTML = `
+
+            <div class="empty">
+
+                No friend requests yet. ❤️
+
+            </div>
+
+        `;
+
+    } else {
+
+
+        requests.forEach(
+            function(request) {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "friend-card";
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="background.jpg"
+                        class="friend-avatar">
+
+
+                    <div class="friend-info">
+
+                        <div class="friend-name">
+
+                            ${escapeHTML(
+                                request.name
+                            )}
+
+                        </div>
+
+
+                        <div class="friend-status">
+
+                            Request sent
+                            ${escapeHTML(
+                                request.time
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="buttons">
+
+                        <button
+                            class="accept"
+                            onclick="acceptRequest(${request.id})">
+
+                            Accept
+
+                        </button>
+
+
+                        <button
+                            class="reject"
+                            onclick="rejectRequest(${request.id})">
+
+                            Reject
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                requestBox.appendChild(card);
+
+            }
+        );
+
+    }
+
+
+    /* FRIENDS */
+
+    if (friends.length === 0) {
+
+        friendsBox.innerHTML = `
+
+            <div class="empty">
+
+                You don't have any friends yet. ❤️
+
+            </div>
+
+        `;
+
+    } else {
+
+
+        friends.forEach(
+            function(friend) {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "friend-card";
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="background.jpg"
+                        class="friend-avatar">
+
+
+                    <div class="friend-info">
+
+                       <div
+    class="friend-name"
+    onclick="location.href='friend-profile.html?id=${friend.id}'"
+    style="cursor:pointer; color:#ff1493;">
+
+    ${escapeHTML(friend.name)}
+
+</div>
+
+                            ${escapeHTML(
+                                friend.name
+                            )}
+
+                        </div>
+
+
+                        <div class="friend-status">
+
+                            Your friend ❤️
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="remove"
+                        onclick="removeFriend(${friend.id})">
+
+                        Remove
+
+                    </button>
+
+                `;
+
+
+                friendsBox.appendChild(card);
+
+            }
+        );
+
+    }
+
+}
+
+
+/* ESCAPE TEXT */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* START */
+
+loadFriends();
+
+</script></body></html>

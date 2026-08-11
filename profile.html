@@ -1,0 +1,692 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Profile - Hope & Sharon</title><style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding-bottom: 70px;
+}
+
+/* TOP BAR */
+
+.topbar {
+    height: 60px;
+    background: #ff1493;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back {
+    font-size: 28px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+/* PROFILE */
+
+.profile {
+    background: white;
+}
+
+/* COVER */
+
+.cover {
+    height: 200px;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* PROFILE PHOTO */
+
+.profile-photo {
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    bottom: -55px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border: 5px solid white;
+    background: white;
+}
+
+/* PROFILE INFORMATION */
+
+.profile-info {
+    text-align: center;
+    padding: 70px 15px 20px;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.username {
+    color: #777;
+    margin-top: 5px;
+}
+
+.bio {
+    margin-top: 12px;
+    line-height: 1.5;
+}
+
+/* EDIT */
+
+.edit-btn {
+    margin-top: 15px;
+    border: none;
+    background: #ff1493;
+    color: white;
+    padding: 11px 25px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* STATS */
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.stat-label {
+    color: #777;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* TABS */
+
+.tabs {
+    display: flex;
+    background: white;
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #777;
+}
+
+.tab.active {
+    color: #ff1493;
+    border-bottom: 3px solid #ff1493;
+}
+
+/* PHOTOS */
+
+.photos {
+    background: white;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.photos img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* POST */
+
+.post {
+    background: white;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-name {
+    font-weight: bold;
+}
+
+.post-time {
+    color: #777;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.post-text {
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* PHOTO VIEWER */
+
+.viewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+}
+
+.viewer img {
+    max-width: 95%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close-viewer {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 60px;
+
+    background: white;
+    border-top: 1px solid #ddd;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    z-index: 100;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+}
+
+.nav-item span {
+    display: block;
+    font-size: 22px;
+}
+
+.nav-item.active {
+    color: #ff1493;
+    font-weight: bold;
+}
+
+</style></head><body><!-- TOP BAR --><div class="topbar"><div
+    class="back"
+    onclick="location.href='home.html'">
+
+    ←
+
+</div>
+
+<div class="title">
+
+    Profile 👤
+
+</div>
+
+</div><!-- PROFILE --><div class="profile"><!-- COVER PHOTO -->
+
+<div
+    class="cover"
+    id="coverPhoto">
+
+    <img
+        src="background.jpg"
+        class="profile-photo"
+        id="profilePhoto"
+        alt="Profile photo">
+
+</div>
+
+
+<!-- PROFILE INFO -->
+
+<div class="profile-info">
+
+    <div
+        class="profile-name"
+        id="profileName">
+
+        Hope & Sharon ❤️
+
+    </div>
+
+    <div class="username">
+
+        @hopeandsharon
+
+    </div>
+
+    <div class="bio">
+
+        Our love story ❤️<br>
+
+        Sharing memories, smiles
+        and beautiful moments together. 💕
+
+    </div>
+
+
+    <button
+        class="edit-btn"
+        onclick="editProfile()">
+
+        ✏️ Edit Profile
+
+    </button>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+    <div class="stat">
+
+        <div class="stat-number">
+            125
+        </div>
+
+        <div class="stat-label">
+            Friends
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number">
+            48
+        </div>
+
+        <div class="stat-label">
+            Posts
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number">
+            96
+        </div>
+
+        <div class="stat-label">
+            Photos
+        </div>
+
+    </div>
+
+</div>
+
+</div><!-- TABS --><div class="tabs"><div
+    class="tab active"
+    onclick="showPosts()">
+
+    Posts
+
+</div>
+
+<div
+    class="tab"
+    onclick="showPhotos()">
+
+    Photos
+
+</div>
+
+</div><!-- PHOTOS --><div
+    class="photos"
+    id="photos"
+    style="display:none;"><img
+    src="background.jpg"
+    onclick="openPhoto(this.src)">
+
+<img
+    src="background.jpg"
+    onclick="openPhoto(this.src)">
+
+<img
+    src="background.jpg"
+    onclick="openPhoto(this.src)">
+
+<img
+    src="background.jpg"
+    onclick="openPhoto(this.src)">
+
+<img
+    src="background.jpg"
+    onclick="openPhoto(this.src)">
+
+<img
+    src="background.jpg"
+    onclick="openPhoto(this.src)">
+
+</div><!-- POST --><div
+    class="post"
+    id="profilePost"><div class="post-header">
+
+    <img
+        src="background.jpg"
+        class="post-avatar">
+
+    <div>
+
+        <div class="post-name">
+
+            Hope & Sharon ❤️
+
+        </div>
+
+        <div class="post-time">
+
+            Today · 🌍
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="post-text">
+
+    Every beautiful memory
+    starts with a smile. ❤️💕
+
+</div>
+
+
+<img
+    src="background.jpg"
+    class="post-image"
+    onclick="openPhoto(this.src)">
+
+</div><!-- FULLSCREEN PHOTO --><div
+    class="viewer"
+    id="viewer"
+    onclick="closePhoto()"><div class="close-viewer">
+    ×
+</div>
+
+<img
+    id="viewerImage"
+    src="">
+
+</div><!-- HIDDEN FILE INPUTS --><input
+type="file"
+id="profileInput"
+accept="image/*"
+style="display:none"
+onchange="changeProfilePhoto(event)">
+
+<input
+type="file"
+id="coverInput"
+accept="image/*"
+style="display:none"
+onchange="changeCoverPhoto(event)">
+
+<!-- BOTTOM NAV --><div class="bottom-nav"><div
+    class="nav-item"
+    onclick="location.href='home.html'">
+
+    <span>🏠</span>
+    Home
+
+</div>
+
+<div
+    class="nav-item"
+    onclick="location.href='friends.html'">
+
+    <span>👥</span>
+    Friends
+
+</div>
+
+<div
+    class="nav-item"
+    onclick="location.href='create.html'">
+
+    <span>➕</span>
+    Create
+
+</div>
+
+<div
+    class="nav-item"
+    onclick="location.href='message.html'">
+
+    <span>💬</span>
+    Messages
+
+</div>
+
+<div class="nav-item active">
+
+    <span>👤</span>
+    Profile
+
+</div>
+
+</div><script>
+
+/* EDIT PROFILE */
+
+function editProfile() {
+
+    const choice = prompt(
+        "What would you like to change?\n\n" +
+        "1 = Profile name\n" +
+        "2 = Profile photo\n" +
+        "3 = Cover photo"
+    );
+
+
+    if (choice === "1") {
+
+        const name = prompt(
+            "Enter your profile name:",
+            "Hope & Sharon"
+        );
+
+        if (name) {
+
+            document
+                .getElementById("profileName")
+                .textContent =
+                name + " ❤️";
+
+        }
+
+    }
+
+
+    else if (choice === "2") {
+
+        document
+            .getElementById("profileInput")
+            .click();
+
+    }
+
+
+    else if (choice === "3") {
+
+        document
+            .getElementById("coverInput")
+            .click();
+
+    }
+
+}
+
+
+/* CHANGE PROFILE PHOTO */
+
+function changeProfilePhoto(event) {
+
+    const file =
+        event.target.files[0];
+
+    if (!file) return;
+
+    const imageURL =
+        URL.createObjectURL(file);
+
+    document
+        .getElementById("profilePhoto")
+        .src = imageURL;
+
+}
+
+
+/* CHANGE COVER PHOTO */
+
+function changeCoverPhoto(event) {
+
+    const file =
+        event.target.files[0];
+
+    if (!file) return;
+
+    const imageURL =
+        URL.createObjectURL(file);
+
+    document
+        .getElementById("coverPhoto")
+        .style.backgroundImage =
+        "url('" + imageURL + "')";
+
+}
+
+
+/* SHOW POSTS */
+
+function showPosts() {
+
+    document
+        .getElementById("photos")
+        .style.display = "none";
+
+    document
+        .getElementById("profilePost")
+        .style.display = "block";
+
+}
+
+
+/* SHOW PHOTOS */
+
+function showPhotos() {
+
+    document
+        .getElementById("photos")
+        .style.display = "grid";
+
+    document
+        .getElementById("profilePost")
+        .style.display = "none";
+
+}
+
+
+/* FULLSCREEN PHOTO */
+
+function openPhoto(src) {
+
+    document
+        .getElementById("viewerImage")
+        .src = src;
+
+    document
+        .getElementById("viewer")
+        .style.display = "flex";
+
+}
+
+
+function closePhoto() {
+
+    document
+        .getElementById("viewer")
+        .style.display = "none";
+
+}
+
+</script></body>
