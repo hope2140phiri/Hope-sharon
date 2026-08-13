@@ -14,7 +14,6 @@
 body {
     margin: 0;
     min-height: 100vh;
-
     font-family: Georgia, serif;
 
     background:
@@ -25,7 +24,6 @@ body {
         #fff0f7;
 
     color: #4a1731;
-
     padding: 25px 15px 50px;
 }
 
@@ -63,15 +61,10 @@ h1 {
 
 .chapter {
     display: block;
-
     padding: 20px;
-
     background: white;
-
     border-radius: 20px;
-
     text-decoration: none;
-
     color: #4a1731;
 
     box-shadow:
@@ -86,27 +79,20 @@ h1 {
 
 .chapter-number {
     color: #ff1493;
-
     font-size: 14px;
-
     font-weight: bold;
-
     letter-spacing: 2px;
 }
 
 .chapter-title {
     font-size: 22px;
-
     margin-top: 7px;
-
     font-weight: bold;
 }
 
 .chapter-arrow {
     float: right;
-
     font-size: 25px;
-
     color: #8a2be2;
 }
 
@@ -146,33 +132,40 @@ h1 {
     color: white;
 }
 
+.surprise {
+    margin-top: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #ff69b4
+        );
+
+    color: white;
+}
+
+.surprise .chapter-number,
+.surprise .chapter-arrow {
+    color: white;
+}
+
 .buttons {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 12px;
-
     margin-top: 35px;
 }
 
 .btn {
     display: inline-block;
-
     padding: 14px 23px;
-
     border-radius: 30px;
-
     background: #ff1493;
-
     color: white;
-
     text-decoration: none;
-
     font-weight: bold;
-
     transition: .2s;
 }
 
@@ -186,6 +179,10 @@ h1 {
 
 .green {
     background: #e91e63;
+}
+
+.gold {
+    background: #d63384;
 }
 
 @keyframes heartbeat {
@@ -221,8 +218,6 @@ h1 {
     <div class="chapter-list">
 
 
-        <!-- CHAPTER 1 -->
-
         <a href="story.html" class="chapter">
 
             <span class="chapter-number">
@@ -237,8 +232,6 @@ h1 {
 
         </a>
 
-
-        <!-- CHAPTER 2 -->
 
         <a href="chapter2.html" class="chapter">
 
@@ -255,8 +248,6 @@ h1 {
         </a>
 
 
-        <!-- CHAPTER 3 -->
-
         <a href="chapter3.html" class="chapter">
 
             <span class="chapter-number">
@@ -271,8 +262,6 @@ h1 {
 
         </a>
 
-
-        <!-- CHAPTER 4 -->
 
         <a href="chapter4.html" class="chapter">
 
@@ -289,8 +278,6 @@ h1 {
         </a>
 
 
-        <!-- CHAPTER 5 -->
-
         <a href="chapter5.html" class="chapter">
 
             <span class="chapter-number">
@@ -305,8 +292,6 @@ h1 {
 
         </a>
 
-
-        <!-- CHAPTER 6 -->
 
         <a href="chapter6.html" class="chapter">
 
@@ -323,8 +308,6 @@ h1 {
         </a>
 
 
-        <!-- CHAPTER 7 -->
-
         <a href="chapter7.html" class="chapter">
 
             <span class="chapter-number">
@@ -339,8 +322,6 @@ h1 {
 
         </a>
 
-
-        <!-- CHAPTER 8 -->
 
         <a href="chapter8.html" class="chapter">
 
@@ -357,8 +338,6 @@ h1 {
         </a>
 
 
-        <!-- CHAPTER 9 -->
-
         <a href="chapter9.html" class="chapter">
 
             <span class="chapter-number">
@@ -373,8 +352,6 @@ h1 {
 
         </a>
 
-
-        <!-- CHAPTER 10 -->
 
         <a href="chapter10.html" class="chapter">
 
@@ -391,8 +368,6 @@ h1 {
         </a>
 
 
-        <!-- OUR MEMORIES -->
-
         <a href="memories.html" class="chapter memories">
 
             <span class="chapter-number">
@@ -407,8 +382,6 @@ h1 {
 
         </a>
 
-
-        <!-- LOVE LETTER -->
 
         <a href="loveletter.html" class="chapter special">
 
@@ -425,6 +398,20 @@ h1 {
         </a>
 
 
+        <a href="surprise.html" class="chapter surprise">
+
+            <span class="chapter-number">
+                SECRET SURPRISE
+            </span>
+
+            <span class="chapter-arrow">🎁</span>
+
+            <div class="chapter-title">
+                A Surprise for Sharon
+            </div>
+
+        </a>
+
     </div>
 
 
@@ -440,6 +427,10 @@ h1 {
 
         <a href="memories.html" class="btn green">
             💭 Memories
+        </a>
+
+        <a href="surprise.html" class="btn gold">
+            🎁 Surprise
         </a>
 
     </div>
