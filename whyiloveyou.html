@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Why I Love You - Hope & Sharon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+
+    background:
+        radial-gradient(circle at top, #ffd1e6, transparent 45%),
+        linear-gradient(135deg, #ff1493, #8a2be2);
+
+    color: #4a1731;
+    padding: 25px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+.header {
+    color: white;
+}
+
+.heart {
+    font-size: 70px;
+    animation: heartbeat 1.5s infinite;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(255,255,255,.97);
+    border-radius: 28px;
+    padding: 35px 25px;
+
+    min-height: 270px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.25);
+
+    animation: appear .6s ease;
+}
+
+.number {
+    color: #8a2be2;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.reason {
+    color: #ff1493;
+    font-size: 28px;
+    margin: 20px 0 12px;
+}
+
+.text {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    margin-top: 25px;
+
+    padding: 15px 25px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff1493,
+        #8a2be2
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.2);
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+.message {
+    margin-top: 25px;
+    color: white;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+a {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #8a2be2;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.heart-float {
+    position: fixed;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation: float 5s linear forwards;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div class="heart">❤️</div>
+
+        <h1>Why I Love You</h1>
+
+        <div class="subtitle">
+            For Sharon, from Hope 💕
+        </div>
+
+    </div>
+
+
+    <div class="card" id="card">
+
+        <div class="number" id="number">
+            REASON 1
+        </div>
+
+        <div class="reason" id="reason">
+            Your Smile 😊
+        </div>
+
+        <div class="text" id="text">
+            Your smile has a beautiful way of making ordinary moments
+            feel special.
+        </div>
+
+        <button onclick="nextReason()">
+            💖 Show Me Another
+        </button>
+
+    </div>
+
+
+    <div class="message">
+
+        Every reason is only a small part of why you are special to me.
+
+        <br>
+
+        <strong>
+            ❤️ Hope & Sharon — Our Story Continues ❤️
+        </strong>
+
+    </div>
+
+
+    <div class="buttons">
+
+        <a href="chapters.html">
+            📖 Back to Our Story
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const reasons = [
+
+    {
+        title: "Your Smile 😊",
+        text: "Your smile has a beautiful way of making ordinary moments feel special."
+    },
+
+    {
+        title: "Your Kindness 💕",
+        text: "I love the kindness you show and the little things you do that make people feel valued."
+    },
+
+    {
+        title: "Our Memories 📸",
+        text: "Every memory we have created together is another page in a story I will always treasure."
+    },
+
+    {
+        title: "Your Personality ✨",
+        text: "There is something uniquely special about the way you are. You are simply Sharon."
+    },
+
+    {
+        title: "The Way You Make Me Feel ❤️",
+        text: "Being around someone who matters to you can make even an ordinary day feel different."
+    },
+
+    {
+        title: "Our Conversations 💬",
+        text: "The conversations, jokes and little moments we share have become some of my favorite memories."
+    },
+
+    {
+        title: "Your Strength 🌹",
+        text: "I admire the strength you have shown through both the beautiful moments and the difficult ones."
+    },
+
+    {
+        title: "Because You're You 🥰",
+        text: "Above everything else, I love you for being yourself. There is only one Sharon."
+    },
+
+    {
+        title: "Our Story 📖",
+        text: "Our story is not just about perfect moments. It is about everything we have experienced and learned together."
+    },
+
+    {
+        title: "The Future ✨",
+        text: "There are still many pages left to write, and I hope the future brings many more beautiful memories."
+    }
+
+];
+
+let current = 0;
+
+function nextReason() {
+
+    current++;
+
+    if (current >= reasons.length) {
+        current = 0;
+    }
+
+    const card = document.getElementById("card");
+
+    card.style.animation = "none";
+
+    void card.offsetWidth;
+
+    card.style.animation = "appear .6s ease";
+
+    document.getElementById("number").textContent =
+        "REASON " + (current + 1);
+
+    document.getElementById("reason").textContent =
+        reasons[current].title;
+
+    document.getElementById("text").textContent =
+        reasons[current].text;
+
+    createHearts();
+}
+
+function createHearts() {
+
+    for (let i = 0; i < 8; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart-float";
+
+        heart.textContent =
+            Math.random() > .5 ? "❤️" : "💕";
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }
+}
+
+</script>
+
+</body>
+</html>
+
