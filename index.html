@@ -1,156 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hope & Sharon ❤️</title>
+<title>Hope & Sharon - Our Love Story</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
+body {
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: #000;
+    overflow: hidden;
+}
 
-        .cover {
-            width: 100%;
-            height: 100vh;
+.cover {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
+        url("hope.jpg") center/cover no-repeat;
+}
 
-            background-image:
-                linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-                url("background.jpg");
+.book {
+    width: 90%;
+    max-width: 500px;
+    padding: 45px 25px;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 25px;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 30px rgba(255,20,147,0.7);
+}
 
-            background-size: cover;
-            background-position: center;
+.heart {
+    font-size: 55px;
+    margin-bottom: 15px;
+    animation: beat 1.3s infinite;
+}
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+h1 {
+    color: white;
+    font-size: 42px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
 
-            position: relative;
-            overflow: hidden;
-        }
+.subtitle {
+    color: #ffb6d9;
+    font-size: 25px;
+    margin-bottom: 25px;
+    font-style: italic;
+}
 
-        .content {
-            color: white;
-            z-index: 10;
-        }
+.line {
+    width: 80%;
+    height: 2px;
+    background: white;
+    margin: 20px auto;
+    opacity: 0.7;
+}
 
-        .heart {
-            font-size: 75px;
-            animation: heartbeat 1.5s infinite;
-        }
+.quote {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
 
-        h1 {
-            font-size: 44px;
-            margin: 15px 0 10px;
-            text-shadow: 2px 2px 10px black;
-        }
+.start-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: #ff1493;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 18px;
+    box-shadow: 0 5px 20px rgba(255,20,147,0.6);
+    transition: 0.3s;
+}
 
-        p {
-            font-size: 21px;
-            text-shadow: 1px 1px 6px black;
-        }
+.start-btn:hover {
+    transform: scale(1.08);
+    background: #ff69b4;
+}
 
-        .floating-heart {
-            position: absolute;
-            bottom: -50px;
-            font-size: 25px;
-            animation: floatUp linear infinite;
-            opacity: 0.8;
-        }
+.footer {
+    margin-top: 25px;
+    color: #ddd;
+    font-size: 14px;
+}
 
-        .heart1 {
-            left: 10%;
-            animation-duration: 7s;
-        }
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
 
-        .heart2 {
-            left: 30%;
-            animation-duration: 9s;
-            animation-delay: 2s;
-        }
-
-        .heart3 {
-            left: 50%;
-            animation-duration: 6s;
-            animation-delay: 1s;
-        }
-
-        .heart4 {
-            left: 70%;
-            animation-duration: 8s;
-            animation-delay: 3s;
-        }
-
-        .heart5 {
-            left: 90%;
-            animation-duration: 10s;
-            animation-delay: 1s;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.25);
-            }
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 0.8;
-            }
-
-            90% {
-                opacity: 0.8;
-            }
-
-            100% {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    50% {
+        transform: scale(1.2);
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="cover">
+<div class="cover">
 
-        <div class="floating-heart heart1">❤️</div>
-        <div class="floating-heart heart2">💕</div>
-        <div class="floating-heart heart3">❤️</div>
-        <div class="floating-heart heart4">💗</div>
-        <div class="floating-heart heart5">💕</div>
+    <div class="book">
 
-        <div class="content">
+        <div class="heart">❤️</div>
 
-            <div class="heart">❤️</div>
+        <h1>Hope & Sharon</h1>
 
-            <h1>Hope & Sharon</h1>
+        <div class="subtitle">
+            Our Love Story
+        </div>
 
-            <p>Our Love Story 💕</p>
+        <div class="line"></div>
 
+        <div class="quote">
+            “Two hearts, one journey,<br>
+            one beautiful story.”
+        </div>
+
+        <a href="chapter1.html" class="start-btn">
+            Begin Our Story ❤️
+        </a>
+
+        <div class="footer">
+            A story written by Hope & Sharon
         </div>
 
     </div>
+
+</div>
 
 </body>
 </html>
