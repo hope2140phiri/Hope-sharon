@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 2 - Hope & Sharon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #1a0612;
+    color: #4a1731;
+}
+
+.book {
+    min-height: 100vh;
+    padding: 20px 12px;
+    perspective: 1200px;
+}
+
+.page {
+    max-width: 700px;
+    margin: auto;
+    padding: 30px 20px 40px;
+
+    background: linear-gradient(
+        135deg,
+        #fff8fc,
+        #ffe6f0
+    );
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.5);
+
+    animation: pageOpen 1s ease forwards;
+    transform-origin: left center;
+}
+
+.header {
+    text-align: center;
+}
+
+.heart {
+    font-size: 55px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.chapter {
+    color: #ff1493;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    color: #ff1493;
+    font-size: 34px;
+    margin: 12px 0;
+}
+
+.photo {
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+
+    margin: 25px 0;
+
+    border-radius: 20px;
+
+    border: 5px solid white;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+}
+
+.story {
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.story p {
+    margin-bottom: 20px;
+}
+
+.quote {
+    margin: 25px 5px;
+    padding: 20px;
+
+    text-align: center;
+
+    color: #8a2be2;
+
+    font-size: 21px;
+    font-style: italic;
+
+    border-top: 1px solid #ffb6d9;
+    border-bottom: 1px solid #ffb6d9;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 22px;
+
+    border-radius: 30px;
+
+    background: #ff1493;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(255,20,147,.3);
+}
+
+.secondary {
+    background: #8a2be2;
+}
+
+@keyframes pageOpen {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotateY(-75deg)
+            scale(.92);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotateY(0)
+            scale(1);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="book">
+
+    <article class="page">
+
+        <div class="header">
+
+            <div class="heart">💕</div>
+
+            <div class="chapter">
+                CHAPTER 2
+            </div>
+
+            <h1>The Moments We Shared</h1>
+
+        </div>
+
+        <img
+            src="photo2.jpg"
+            class="photo"
+            alt="Hope and Sharon memory"
+        >
+
+        <div class="story">
+
+            <p>
+                As our story continued, every moment
+                became another page in our journey. ❤️
+            </p>
+
+            <p>
+                Sometimes it was the smallest things
+                that became the memories we treasured
+                the most — a smile, a conversation,
+                a laugh, or simply being there for each other.
+            </p>
+
+            <div class="quote">
+                “The best memories are the ones
+                that make your heart smile.” 💕
+            </div>
+
+            <p>
+                We discovered that love is not only about
+                big moments. It is also about the little
+                moments that quietly become unforgettable.
+            </p>
+
+            <p>
+                And with every memory we created,
+                another beautiful page was added
+                to the story of Hope & Sharon.
+            </p>
+
+            <p>
+                Our journey was still unfolding...
+                📖❤️
+            </p>
+
+        </div>
+
+        <div class="buttons">
+
+            <a href="story.html" class="btn">
+                ← Previous
+            </a>
+
+            <a href="chapters.html" class="btn secondary">
+                📚 Chapters
+            </a>
+
+            <a href="chapter3.html" class="btn">
+                Next ➜
+            </a>
+
+        </div>
+
+    </article>
+
+</div>
+
+</body>
+</html>

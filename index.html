@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hope & Sharon Love Story</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+/* COVER */
+
+.cover {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.6)
+        ),
+        url("cover.jpg") center/cover no-repeat;
+}
+
+/* BOOK */
+
+.book {
+    width: 95%;
+    max-width: 650px;
+
+    padding: 40px 25px;
+
+    color: white;
+
+    background: rgba(0,0,0,.5);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.5);
+
+    animation: bookAppear 1.2s ease;
+}
+
+/* HEART */
+
+.heart {
+    font-size: 75px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+/* TITLE */
+
+h1 {
+    font-size: 42px;
+
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-size: 24px;
+
+    margin-bottom: 15px;
+}
+
+.host {
+    font-size: 19px;
+
+    margin-bottom: 30px;
+}
+
+/* BUTTONS */
+
+.start,
+.gallery,
+.letter {
+    display: block;
+
+    width: 90%;
+    max-width: 350px;
+
+    margin: 12px auto;
+
+    padding: 16px 25px;
+
+    border-radius: 35px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.start {
+    background: #ff1493;
+
+    box-shadow:
+        0 5px 20px rgba(255,20,147,.5);
+}
+
+.gallery {
+    background: #8a2be2;
+}
+
+.letter {
+    background: #e91e63;
+}
+
+.start:hover,
+.gallery:hover,
+.letter:hover {
+    transform: scale(1.06);
+}
+
+/* OPEN BOOK EFFECT */
+
+.start:active {
+    transform: scale(.95);
+}
+
+/* ANIMATIONS */
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes bookAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.85)
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .subtitle {
+        font-size: 21px;
+    }
+
+    .heart {
+        font-size: 65px;
+    }
+
+    .book {
+        padding: 35px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cover">
+
+    <div class="book">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h1>
+            Hope & Sharon
+        </h1>
+
+        <div class="subtitle">
+            Our Love Story
+        </div>
+
+        <div class="host">
+            A story written with love 💕
+        </div>
+
+        <a href="chapters.html" class="start">
+            📖 Open Our Story
+        </a>
+
+        <a href="gallery.html" class="gallery">
+            📸 View Our Gallery
+        </a>
+
+        <a href="loveletter.html" class="letter">
+            💌 Read Our Love Letter
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

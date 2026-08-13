@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Welcome - Hope & Sharon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #1a0612;
+    overflow: hidden;
+}
+
+.book {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    perspective: 1200px;
+}
+
+.page {
+    width: 95%;
+    max-width: 650px;
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 25px;
+
+    color: #4a1731;
+
+    background:
+        linear-gradient(135deg, #fff8fc, #ffe6f0);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.5);
+
+    animation: openBook 1.5s ease forwards;
+    transform-origin: left center;
+}
+
+.content {
+    width: 100%;
+}
+
+.heart {
+    font-size: 75px;
+
+    animation: pulse 1.5s infinite;
+}
+
+h1 {
+    font-size: 42px;
+    color: #ff1493;
+    margin: 15px 0;
+}
+
+.host {
+    font-size: 24px;
+    color: #8a2be2;
+    font-weight: bold;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 25px;
+}
+
+.begin {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 16px 30px;
+
+    background: #ff1493;
+    color: white;
+
+    border-radius: 35px;
+
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 20px rgba(255,20,147,.35);
+
+    transition: .2s;
+}
+
+.begin:active {
+    transform: scale(.95);
+}
+
+@keyframes openBook {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotateY(-90deg)
+            scale(.85);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotateY(0deg)
+            scale(1);
+    }
+}
+
+@keyframes pulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="book">
+
+    <div class="page">
+
+        <div class="content">
+
+            <div class="heart">❤️</div>
+
+            <h1>Welcome</h1>
+
+            <div class="host">
+                Hope & Sharon
+            </div>
+
+            <div class="message">
+
+                <p>
+                    Welcome to our love story. 💕
+                </p>
+
+                <p>
+                    These pages hold our memories,
+                    our special moments, and the journey
+                    that made this story worth telling.
+                </p>
+
+                <p>
+                    Turn the page and discover
+                    our story together. 📖❤️
+                </p>
+
+            </div>
+
+            <a href="chapters.html" class="begin">
+                ❤️ Begin Our Story
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

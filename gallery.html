@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memories - Hope & Sharon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, serif;
+
+    background:
+        linear-gradient(
+            rgba(255,20,147,.12),
+            rgba(138,43,226,.12)
+        ),
+        #fff0f7;
+
+    color: #4a1731;
+
+    padding: 25px 14px 50px;
+}
+
+.gallery {
+    max-width: 800px;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heart {
+    font-size: 65px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+h1 {
+    color: #ff1493;
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: #8a2be2;
+    font-size: 18px;
+}
+
+.photos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+}
+
+.memory {
+    background: white;
+
+    padding: 12px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18);
+
+    transition: .25s;
+}
+
+.memory:hover {
+    transform: translateY(-5px);
+}
+
+.memory img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+.caption {
+    text-align: center;
+
+    padding: 14px 5px 5px;
+
+    color: #ff1493;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+.message {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.12);
+}
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 23px;
+
+    border-radius: 30px;
+
+    background: #ff1493;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.secondary {
+    background: #8a2be2;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="gallery">
+
+    <div class="header">
+
+        <div class="heart">📸</div>
+
+        <h1>Our Memories</h1>
+
+        <div class="subtitle">
+            Beautiful moments we will always remember ❤️
+        </div>
+
+    </div>
+
+    <div class="photos">
+
+        <div class="memory">
+
+            <img src="photo1.jpg" alt="Our first memory">
+
+            <div class="caption">
+                ❤️ A Beautiful Memory
+            </div>
+
+        </div>
+
+        <div class="memory">
+
+            <img src="photo2.jpg" alt="Our special memory">
+
+            <div class="caption">
+                💕 A Special Moment
+            </div>
+
+        </div>
+
+        <div class="memory">
+
+            <img src="photo3.jpg" alt="Our happy memory">
+
+            <div class="caption">
+                🌹 A Moment To Remember
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="message">
+
+        <p>
+            Pictures capture moments, but memories
+            keep them alive. ❤️
+        </p>
+
+        <p>
+            These are just a few pages of our story.
+            There are many more memories waiting to be made.
+        </p>
+
+    </div>
+
+    <div class="buttons">
+
+        <a href="index.html" class="btn secondary">
+            🏠 Cover
+        </a>
+
+        <a href="chapters.html" class="btn">
+            📖 Chapters
+        </a>
+
+        <a href="loveletter.html" class="btn">
+            💌 Love Letter
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

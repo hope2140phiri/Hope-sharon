@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapters - Hope & Sharon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, serif;
+
+    background:
+        linear-gradient(
+            rgba(255,20,147,.15),
+            rgba(138,43,226,.15)
+        ),
+        #fff0f7;
+
+    color: #4a1731;
+
+    padding: 25px 15px 50px;
+}
+
+.book {
+    max-width: 700px;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heart {
+    font-size: 65px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+h1 {
+    color: #ff1493;
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: #8a2be2;
+    font-size: 18px;
+}
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chapter {
+    display: block;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    text-decoration: none;
+
+    color: #4a1731;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.12);
+
+    transition: .2s;
+}
+
+.chapter:hover {
+    transform: scale(1.02);
+}
+
+.chapter-number {
+    color: #ff1493;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.chapter-title {
+    font-size: 22px;
+
+    margin-top: 7px;
+
+    font-weight: bold;
+}
+
+.chapter-arrow {
+    float: right;
+
+    font-size: 25px;
+
+    color: #8a2be2;
+}
+
+.special {
+    margin-top: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #8a2be2
+        );
+
+    color: white;
+}
+
+.special .chapter-number,
+.special .chapter-arrow {
+    color: white;
+}
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 23px;
+
+    border-radius: 30px;
+
+    background: #ff1493;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.secondary {
+    background: #8a2be2;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="book">
+
+    <div class="header">
+
+        <div class="heart">❤️</div>
+
+        <h1>Hope & Sharon</h1>
+
+        <div class="subtitle">
+            📖 Our Love Story — Chapters
+        </div>
+
+    </div>
+
+    <div class="chapter-list">
+
+        <a href="story.html" class="chapter">
+
+            <span class="chapter-number">
+                CHAPTER 1
+            </span>
+
+            <span class="chapter-arrow">➜</span>
+
+            <div class="chapter-title">
+                How Our Story Began
+            </div>
+
+        </a>
+
+        <a href="chapter2.html" class="chapter">
+
+            <span class="chapter-number">
+                CHAPTER 2
+            </span>
+
+            <span class="chapter-arrow">➜</span>
+
+            <div class="chapter-title">
+                Our Journey
+            </div>
+
+        </a>
+
+        <a href="chapter3.html" class="chapter">
+
+            <span class="chapter-number">
+                CHAPTER 3
+            </span>
+
+            <span class="chapter-arrow">➜</span>
+
+            <div class="chapter-title">
+                Beautiful Memories
+            </div>
+
+        </a>
+
+        <a href="chapter4.html" class="chapter">
+
+            <span class="chapter-number">
+                CHAPTER 4
+            </span>
+
+            <span class="chapter-arrow">➜</span>
+
+            <div class="chapter-title">
+                Moments Together
+            </div>
+
+        </a>
+
+        <a href="chapter5.html" class="chapter">
+
+            <span class="chapter-number">
+                CHAPTER 5
+            </span>
+
+            <span class="chapter-arrow">➜</span>
+
+            <div class="chapter-title">
+                Our Special Moments
+            </div>
+
+        </a>
+
+        <a href="chapter6.html" class="chapter">
+
+            <span class="chapter-number">
+                CHAPTER 6
+            </span>
+
+            <span class="chapter-arrow">➜</span>
+
+            <div class="chapter-title">
+                Our Love Continues
+            </div>
+
+        </a>
+
+        <a href="chapter7.html" class="chapter">
+
+            <span class="chapter-number">
+                CHAPTER 7
+            </span>
+
+            <span class="chapter-arrow">➜</span>
+
+            <div class="chapter-title">
+                The Next Chapter
+            </div>
+
+        </a>
+
+        <a href="loveletter.html" class="chapter special">
+
+            <span class="chapter-number">
+                SPECIAL PAGE
+            </span>
+
+            <span class="chapter-arrow">💌</span>
+
+            <div class="chapter-title">
+                A Love Letter
+            </div>
+
+        </a>
+
+    </div>
+
+    <div class="buttons">
+
+        <a href="index.html" class="btn secondary">
+            🏠 Cover
+        </a>
+
+        <a href="gallery.html" class="btn">
+            📸 Gallery
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

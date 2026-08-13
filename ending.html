@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Story Continues - Hope & Sharon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Georgia, serif;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.6)
+        ),
+        url("cover.jpg") center/cover fixed no-repeat;
+
+    color: white;
+}
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+}
+
+.card {
+    width: 95%;
+    max-width: 650px;
+
+    padding: 45px 25px;
+
+    text-align: center;
+
+    background: rgba(0,0,0,.55);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.5);
+
+    animation: appear 1.2s ease;
+}
+
+.rose {
+    font-size: 75px;
+
+    animation: float 2s infinite ease-in-out;
+}
+
+h1 {
+    font-size: 40px;
+
+    color: #ff69b4;
+
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-size: 24px;
+
+    margin-bottom: 25px;
+}
+
+.message {
+    font-size: 19px;
+
+    line-height: 1.9;
+}
+
+.quote {
+    margin: 30px 0;
+
+    padding: 20px;
+
+    border-top: 1px solid rgba(255,255,255,.5);
+    border-bottom: 1px solid rgba(255,255,255,.5);
+
+    font-size: 22px;
+
+    font-style: italic;
+
+    color: #ffd1e8;
+}
+
+.love {
+    font-size: 30px;
+
+    margin-top: 25px;
+}
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    border-radius: 30px;
+
+    background: #ff1493;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.secondary {
+    background: #8a2be2;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="rose">🌹</div>
+
+        <h1>Our Story Doesn't End Here</h1>
+
+        <div class="subtitle">
+            ❤️ There are still many pages to write...
+        </div>
+
+        <div class="message">
+
+            <p>
+                Every chapter brought us another memory,
+                another moment, and another page in our story.
+            </p>
+
+            <div class="quote">
+                “The best stories are the ones that
+                are still being written.” ❤️
+            </div>
+
+            <p>
+                This book may have an ending page,
+                but our memories don't have to end here.
+            </p>
+
+            <p>
+                There are still more smiles,
+                more memories, more adventures,
+                and more beautiful moments ahead.
+            </p>
+
+        </div>
+
+        <div class="love">
+            Hope ❤️ Sharon
+        </div>
+
+        <div class="buttons">
+
+            <a href="chapters.html" class="btn secondary">
+                📖 Read Again
+            </a>
+
+            <a href="loveletter.html" class="btn">
+                💌 Love Letter
+            </a>
+
+            <a href="index.html" class="btn">
+                🏠 Cover
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

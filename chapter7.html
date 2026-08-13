@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 7 - Hope & Sharon</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, serif;
+
+    background:
+        linear-gradient(
+            rgba(255,20,147,.15),
+            rgba(138,43,226,.15)
+        ),
+        #fff0f7;
+
+    color: #4a1731;
+
+    padding: 20px 12px 50px;
+}
+
+.page {
+    max-width: 700px;
+    margin: auto;
+
+    padding: 35px 22px 45px;
+
+    background: #fffafd;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.22);
+}
+
+.header {
+    text-align: center;
+}
+
+.heart {
+    font-size: 65px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.chapter {
+    color: #ff1493;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+h1 {
+    color: #ff1493;
+
+    font-size: 36px;
+
+    margin: 12px 0 25px;
+}
+
+.music {
+    margin: 20px 0 30px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    background: #ffe4ef;
+
+    border-radius: 18px;
+}
+
+.music-title {
+    color: #ff1493;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+audio {
+    width: 100%;
+}
+
+.story {
+    font-size: 18px;
+
+    line-height: 1.9;
+}
+
+.story p {
+    margin-bottom: 22px;
+}
+
+.quote {
+    margin: 30px 5px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: #8a2be2;
+
+    font-size: 22px;
+
+    font-style: italic;
+
+    border-top: 1px solid #ffb6d9;
+    border-bottom: 1px solid #ffb6d9;
+}
+
+.ending {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #8a2be2
+        );
+
+    color: white;
+
+    border-radius: 20px;
+}
+
+.ending h2 {
+    margin-top: 0;
+
+    font-size: 27px;
+}
+
+.ending p {
+    line-height: 1.7;
+}
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 22px;
+
+    border-radius: 30px;
+
+    background: #ff1493;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.secondary {
+    background: #8a2be2;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+    <div class="header">
+
+        <div class="heart">❤️</div>
+
+        <div class="chapter">
+            CHAPTER 7
+        </div>
+
+        <h1>The Next Chapter</h1>
+
+    </div>
+
+    <div class="music">
+
+        <div class="music-title">
+            🎵 Our Love Song
+        </div>
+
+        <audio controls preload="metadata">
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+    <div class="story">
+
+        <p>
+            Every story reaches a moment when we look
+            back at everything that has happened and
+            realize how many beautiful memories have
+            been created.
+        </p>
+
+        <p>
+            Our story has brought us through different
+            moments, different feelings, and memories
+            that deserve to be remembered.
+        </p>
+
+        <div class="quote">
+            “The end of one chapter is the beginning
+            of another.” ❤️
+        </div>
+
+        <p>
+            But this is not really the end.
+            There are still many pages waiting to be
+            written.
+        </p>
+
+    </div>
+
+    <div class="ending">
+
+        <h2>🌹 Our Story Doesn't End Here</h2>
+
+        <p>
+            There are still more memories to make,
+            more moments to remember, and more pages
+            waiting for our story.
+        </p>
+
+        <p>
+            ❤️ Hope & Sharon ❤️
+        </p>
+
+    </div>
+
+    <div class="buttons">
+
+        <a href="chapter6.html" class="btn secondary">
+            ← Previous
+        </a>
+
+        <a href="ending.html" class="btn">
+            🌹 Final Ending
+        </a>
+
+        <a href="loveletter.html" class="btn">
+            💌 Love Letter
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>
