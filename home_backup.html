@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hope & Sharon</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+        }
+
+        /* Top bar */
+        .topbar {
+            height: 60px;
+            background: #ff1493;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 15px;
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .icons {
+            font-size: 22px;
+        }
+
+        /* Profile */
+        .profile {
+            background: white;
+            margin-bottom: 10px;
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 180px;
+
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .profile-info {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .profile-pic {
+            width: 90px;
+            height: 90px;
+
+            border-radius: 50%;
+            object-fit: cover;
+
+            border: 4px solid white;
+
+            margin-top: -55px;
+
+            background: white;
+        }
+
+        .profile-info h2 {
+            margin-top: 5px;
+        }
+
+        .profile-info p {
+            color: #777;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top navigation -->
+    <div class="topbar">
+
+        <div class="logo">
+            Hope & Sharon ❤️
+        </div>
+
+        <div class="icons">
+            🔔 💬 ☰
+        </div>
+
+    </div>
+
+    <!-- Profile section -->
+    <div class="profile">
+
+        <div class="cover-photo"></div>
+
+        <div class="profile-info">
+
+            <img
+                src="background.jpg"
+                class="profile-pic"
+                alt="Hope and Sharon"
+            >
+
+            <h2>Hope & Sharon ❤️</h2>
+
+            <p>Our Love Story 💕</p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

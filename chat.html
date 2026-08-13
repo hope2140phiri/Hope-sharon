@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Hope & Sharon Chat</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    height: 60px;
+    background: #ff1493;
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 100;
+}
+
+.back {
+    font-size: 28px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.online {
+    font-size: 12px;
+}
+
+
+/* CHAT */
+
+.chat-area {
+    position: fixed;
+
+    top: 60px;
+    bottom: 70px;
+
+    left: 0;
+    right: 0;
+
+    overflow-y: auto;
+
+    padding: 15px;
+}
+
+.message-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.message-row.me {
+    justify-content: flex-end;
+}
+
+.message-row.friend {
+    justify-content: flex-start;
+}
+
+.message {
+    max-width: 78%;
+    padding: 9px 12px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.message-row.me .message {
+    background: #ff1493;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.message-row.friend .message {
+    background: white;
+    color: #222;
+    border-bottom-left-radius: 5px;
+}
+
+
+/* PHOTO */
+
+.chat-photo {
+    display: block;
+
+    max-width: 240px;
+    max-height: 320px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+}
+
+
+/* VOICE */
+
+.voice-message {
+    display: flex;
+    align-items: center;
+}
+
+.voice-message audio {
+    width: 210px;
+    max-width: 100%;
+}
+
+
+/* TIME */
+
+.message-time {
+    display: block;
+
+    font-size: 10px;
+
+    margin-top: 5px;
+
+    text-align: right;
+
+    opacity: .7;
+}
+
+
+/* EMPTY */
+
+.empty-chat {
+    text-align: center;
+    color: #777;
+    padding: 35px 10px;
+}
+
+
+/* TYPING */
+
+.typing {
+    position: fixed;
+
+    bottom: 72px;
+    left: 15px;
+
+    background: white;
+
+    padding: 8px 14px;
+
+    border-radius: 18px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    display: none;
+
+    z-index: 50;
+}
+
+
+/* INPUT */
+
+.input-area {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 70px;
+
+    background: white;
+
+    border-top: 1px solid #ddd;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px;
+}
+
+
+/* PHOTO BUTTON */
+
+.photo-btn {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+.photo-btn input {
+    display: none;
+}
+
+
+/* VOICE BUTTON */
+
+.voice-btn {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.voice-btn.recording {
+    background: #ff1493;
+    color: white;
+}
+
+
+/* TEXT INPUT */
+
+.input-area input[type="text"] {
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: #f0f2f5;
+
+    border-radius: 25px;
+
+    padding: 13px 15px;
+
+    font-size: 15px;
+}
+
+
+/* SEND */
+
+.send {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ff1493;
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+/* PHOTO VIEWER */
+
+.photo-viewer {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.92);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 500;
+}
+
+.photo-viewer img {
+    max-width: 95%;
+    max-height: 90%;
+
+    object-fit: contain;
+}
+
+.close-photo {
+    position: absolute;
+
+    top: 10px;
+    right: 18px;
+
+    color: white;
+
+    font-size: 38px;
+
+    cursor: pointer;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div
+        class="back"
+        onclick="location.href='message.html'">
+
+        ←
+
+    </div>
+
+
+    <img
+        id="friendAvatar"
+        src="background.jpg"
+        class="avatar">
+
+
+    <div class="user-info">
+
+        <div
+            id="friendName"
+            class="user-name">
+
+            Friend
+
+        </div>
+
+
+        <div
+            id="onlineStatus"
+            class="online">
+
+            🟢 Active now
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- CHAT -->
+
+<div
+    id="chatArea"
+    class="chat-area">
+</div>
+
+
+<!-- TYPING -->
+
+<div
+    id="typingIndicator"
+    class="typing">
+
+    Typing... 💬
+
+</div>
+
+
+<!-- INPUT -->
+
+<div class="input-area">
+
+
+    <label class="photo-btn">
+
+        📷
+
+        <input
+            type="file"
+            id="photoInput"
+            accept="image/*">
+
+    </label>
+
+
+    <button
+        id="voiceButton"
+        class="voice-btn">
+
+        🎤
+
+    </button>
+
+
+    <input
+        id="messageInput"
+        type="text"
+        placeholder="Type a message...">
+
+
+    <button
+        class="send"
+        onclick="sendMessage()">
+
+        ➤
+
+    </button>
+
+</div>
+
+
+<!-- PHOTO VIEWER -->
+
+<div
+    id="photoViewer"
+    class="photo-viewer"
+    onclick="closePhoto()">
+
+    <div
+        class="close-photo">
+
+        ×
+
+    </div>
+
+
+    <img
+        id="viewerImage"
+        src="">
+
+</div>
+
+
+<script>
+
+
+/* FRIEND ID */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const friendId =
+    Number(
+        params.get("id")
+    );
+
+
+/* FRIENDS */
+
+const friends =
+    JSON.parse(
+
+        localStorage.getItem(
+            "hopeSharonFriends"
+        ) || "[]"
+
+    );
+
+
+const friend =
+    friends.find(
+        function(item) {
+
+            return item.id === friendId;
+
+        }
+    );
+
+
+/* FRIEND INFORMATION */
+
+if (friend) {
+
+    document.getElementById(
+        "friendName"
+    ).textContent =
+        friend.name;
+
+
+    if (friend.photo) {
+
+        document.getElementById(
+            "friendAvatar"
+        ).src =
+            friend.photo;
+
+    }
+
+}
+
+
+/* STORAGE */
+
+const storageKey =
+    "hopeSharonMessages_" +
+    friendId;
+
+
+/* GET MESSAGES */
+
+function getMessages() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            storageKey
+        ) || "[]"
+
+    );
+
+}
+
+
+/* SAVE */
+
+function saveMessages(messages) {
+
+    localStorage.setItem(
+
+        storageKey,
+
+        JSON.stringify(
+            messages
+        )
+
+    );
+
+}
+
+
+/* TIME */
+
+function getTime() {
+
+    return new Date()
+        .toLocaleTimeString(
+            [],
+            {
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        );
+
+}
+
+
+/* LOAD CHAT */
+
+function loadMessages() {
+
+    const area =
+        document.getElementById(
+            "chatArea"
+        );
+
+
+    const messages =
+        getMessages();
+
+
+    area.innerHTML = "";
+
+
+    if (messages.length === 0) {
+
+        area.innerHTML = `
+
+            <div class="empty-chat">
+
+                ❤️ Start your conversation
+                with
+
+                <strong>
+
+                    ${escapeHTML(
+                        friend
+                        ? friend.name
+                        : "your friend"
+                    )}
+
+                </strong>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    messages.forEach(
+        function(message) {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "message-row " +
+                (
+                    message.sender === "me"
+                    ? "me"
+                    : "friend"
+                );
+
+
+            const bubble =
+                document.createElement(
+                    "div"
+                );
+
+
+            bubble.className =
+                "message";
+
+
+            /* PHOTO */
+
+            if (
+                message.type === "image" &&
+                message.image
+            ) {
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    message.image;
+
+
+                image.className =
+                    "chat-photo";
+
+
+                image.onclick =
+                    function() {
+
+                        openPhoto(
+                            message.image
+                        );
+
+                    };
+
+
+                bubble.appendChild(
+                    image
+                );
+
+            }
+
+
+            /* VOICE */
+
+            if (
+                message.type === "voice" &&
+                message.audio
+            ) {
+
+                const voiceBox =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                voiceBox.className =
+                    "voice-message";
+
+
+                const audio =
+                    document.createElement(
+                        "audio"
+                    );
+
+
+                audio.controls = true;
+
+                audio.src =
+                    message.audio;
+
+
+                voiceBox.appendChild(
+                    audio
+                );
+
+
+                bubble.appendChild(
+                    voiceBox
+                );
+
+            }
+
+
+            /* TEXT */
+
+            if (message.text) {
+
+                const text =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                text.textContent =
+                    message.text;
+
+
+                bubble.appendChild(
+                    text
+                );
+
+            }
+
+
+            /* TIME */
+
+            const time =
+                document.createElement(
+                    "span"
+                );
+
+
+            time.className =
+                "message-time";
+
+
+            time.textContent =
+                message.time;
+
+
+            bubble.appendChild(
+                time
+            );
+
+
+            row.appendChild(
+                bubble
+            );
+
+
+            area.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    area.scrollTop =
+        area.scrollHeight;
+
+}
+
+
+/* SEND TEXT */
+
+function sendMessage() {
+
+    const input =
+        document.getElementById(
+            "messageInput"
+        );
+
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+
+        return;
+
+    }
+
+
+    const messages =
+        getMessages();
+
+
+    messages.push({
+
+        sender: "me",
+
+        type: "text",
+
+        text: text,
+
+        time: getTime()
+
+    });
+
+
+    saveMessages(
+        messages
+    );
+
+
+    input.value = "";
+
+
+    document.getElementById(
+        "typingIndicator"
+    ).style.display =
+        "none";
+
+
+    loadMessages();
+
+}
+
+
+/* TYPING INDICATOR */
+
+let typingTimer;
+
+
+document.getElementById(
+    "messageInput"
+).addEventListener(
+    "input",
+    function() {
+
+        const indicator =
+            document.getElementById(
+                "typingIndicator"
+            );
+
+
+        if (this.value.length > 0) {
+
+            indicator.style.display =
+                "block";
+
+        } else {
+
+            indicator.style.display =
+                "none";
+
+        }
+
+
+        clearTimeout(
+            typingTimer
+        );
+
+
+        typingTimer =
+            setTimeout(
+                function() {
+
+                    indicator.style.display =
+                        "none";
+
+                },
+                1500
+            );
+
+    }
+);
+
+
+/* ENTER */
+
+document.getElementById(
+    "messageInput"
+).addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            sendMessage();
+
+        }
+
+    }
+);
+
+
+/* PHOTO */
+
+document.getElementById(
+    "photoInput"
+).addEventListener(
+    "change",
+    function(event) {
+
+        const file =
+            event.target.files[0];
+
+
+        if (!file) {
+
+            return;
+
+        }
+
+
+        if (
+            !file.type.startsWith(
+                "image/"
+            )
+        ) {
+
+            alert(
+                "Please choose an image."
+            );
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(e) {
+
+                const messages =
+                    getMessages();
+
+
+                messages.push({
+
+                    sender: "me",
+
+                    type: "image",
+
+                    image:
+                        e.target.result,
+
+                    time:
+                        getTime()
+
+                });
+
+
+                try {
+
+                    saveMessages(
+                        messages
+                    );
+
+                    loadMessages();
+
+                } catch(error) {
+
+                    alert(
+                        "Photo is too large. Please choose a smaller photo."
+                    );
+
+                }
+
+            };
+
+
+        reader.readAsDataURL(
+            file
+        );
+
+
+        event.target.value = "";
+
+    }
+);
+
+
+/* VOICE */
+
+let recorder = null;
+
+let audioChunks = [];
+
+
+const voiceButton =
+    document.getElementById(
+        "voiceButton"
+    );
+
+
+voiceButton.addEventListener(
+    "click",
+    async function() {
+
+
+        /* STOP */
+
+        if (
+            recorder &&
+            recorder.state === "recording"
+        ) {
+
+            recorder.stop();
+
+            return;
+
+        }
+
+
+        /* CHECK */
+
+        if (
+            !navigator.mediaDevices ||
+            !navigator.mediaDevices.getUserMedia
+        ) {
+
+            alert(
+                "Voice recording is not supported."
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            const stream =
+                await navigator.mediaDevices
+                .getUserMedia({
+                    audio: true
+                });
+
+
+            audioChunks = [];
+
+
+            recorder =
+                new MediaRecorder(
+                    stream
+                );
+
+
+            recorder.ondataavailable =
+                function(event) {
+
+                    if (
+                        event.data.size > 0
+                    ) {
+
+                        audioChunks.push(
+                            event.data
+                        );
+
+                    }
+
+                };
+
+
+            recorder.onstop =
+                function() {
+
+
+                    stream
+                    .getTracks()
+                    .forEach(
+                        function(track) {
+
+                            track.stop();
+
+                        }
+                    );
+
+
+                    const audioBlob =
+                        new Blob(
+                            audioChunks,
+                            {
+                                type:
+                                    "audio/webm"
+                            }
+                        );
+
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function(e) {
+
+                            const messages =
+                                getMessages();
+
+
+                            messages.push({
+
+                                sender: "me",
+
+                                type: "voice",
+
+                                audio:
+                                    e.target.result,
+
+                                time:
+                                    getTime()
+
+                            });
+
+
+                            try {
+
+                                saveMessages(
+                                    messages
+                                );
+
+                                loadMessages();
+
+                            } catch(error) {
+
+                                alert(
+                                    "Voice message is too large."
+                                );
+
+                            }
+
+                        };
+
+
+                    reader.readAsDataURL(
+                        audioBlob
+                    );
+
+
+                    voiceButton
+                    .classList
+                    .remove(
+                        "recording"
+                    );
+
+
+                    voiceButton.textContent =
+                        "🎤";
+
+                };
+
+
+            recorder.start();
+
+
+            voiceButton
+            .classList
+            .add(
+                "recording"
+            );
+
+
+            voiceButton.textContent =
+                "⏹️";
+
+
+        } catch(error) {
+
+            alert(
+                "Please allow microphone permission."
+            );
+
+        }
+
+    }
+);
+
+
+/* PHOTO VIEWER */
+
+function openPhoto(src) {
+
+    document.getElementById(
+        "viewerImage"
+    ).src =
+        src;
+
+
+    document.getElementById(
+        "photoViewer"
+    ).style.display =
+        "flex";
+
+}
+
+
+function closePhoto() {
+
+    document.getElementById(
+        "photoViewer"
+    ).style.display =
+        "none";
+
+}
+
+
+/* ESCAPE */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+/* START */
+
+loadMessages();
+
+</script>
+
+
+</body>
+
+</html>

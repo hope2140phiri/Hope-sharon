@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Friend Profile - Hope & Sharon</title><style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding-bottom: 70px;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    height: 60px;
+    background: #ff1493;
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back {
+    font-size: 28px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* COVER */
+
+.cover {
+    width: 100%;
+    height: 220px;
+
+    background-image: url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+
+/* PROFILE */
+
+.profile {
+    background: white;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.profile-picture {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 5px solid white;
+
+    margin-top: -55px;
+
+    position: relative;
+
+    background: #eee;
+}
+
+
+/* PHOTO BUTTON */
+
+.photo-button {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    background: #ff1493;
+
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.photo-button input {
+    display: none;
+}
+
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status {
+    color: #777;
+    margin-top: 5px;
+}
+
+.bio {
+    padding: 12px 20px;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+/* BUTTONS */
+
+.profile-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 10px 15px;
+}
+
+.profile-buttons button {
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 11px 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.message {
+    background: #ff1493;
+    color: white;
+}
+
+.remove {
+    background: #eee;
+    color: #333;
+}
+
+
+/* INFO */
+
+.info {
+    background: white;
+
+    margin-top: 10px;
+
+    padding: 20px;
+}
+
+.info h3 {
+    margin-bottom: 12px;
+}
+
+.info-row {
+    padding: 10px 0;
+
+    border-bottom: 1px solid #eee;
+
+    color: #555;
+}
+
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 60px;
+
+    background: white;
+
+    border-top: 1px solid #ddd;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    z-index: 100;
+}
+
+.nav-item {
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+.nav-item span {
+    display: block;
+
+    font-size: 22px;
+}
+
+.nav-item.active {
+    color: #ff1493;
+    font-weight: bold;
+}
+
+</style></head><body><!-- TOP BAR --><div class="topbar"><div
+    class="back"
+    onclick="location.href='friends.html'">
+
+    ←
+
+</div>
+
+
+<div class="title">
+
+    Friend Profile
+
+</div>
+
+</div><!-- COVER --><div class="cover"></div><!-- PROFILE --><div class="profile"><img
+    id="profilePicture"
+    src="background.jpg"
+    class="profile-picture"
+    alt="Friend">
+
+
+<br>
+
+
+<label class="photo-button">
+
+    📸 Change Profile Photo
+
+    <input
+        type="file"
+        id="photoInput"
+        accept="image/*">
+
+</label>
+
+
+<div
+    id="friendName"
+    class="name">
+
+    Friend
+
+</div>
+
+
+<div class="status">
+
+    ❤️ Your Friend
+
+</div>
+
+
+<div
+    id="friendBio"
+    class="bio">
+
+    Welcome to Hope & Sharon. ❤️
+
+</div>
+
+
+<div class="profile-buttons">
+
+
+    <button
+        class="message"
+        onclick="sendMessage()">
+
+        💬 Message
+
+    </button>
+
+
+    <button
+        class="remove"
+        onclick="removeFriend()">
+
+        ❌ Remove
+
+    </button>
+
+</div>
+
+</div><!-- INFORMATION --><div class="info"><h3>
+    About
+</h3>
+
+
+<div class="info-row">
+
+    ❤️ Hope & Sharon Friend
+
+</div>
+
+
+<div class="info-row">
+
+    👥 Friends since today
+
+</div>
+
+
+<div class="info-row">
+
+    💕 Part of the Hope & Sharon community
+
+</div>
+
+</div><!-- BOTTOM NAV --><div class="bottom-nav"><div
+    class="nav-item"
+    onclick="location.href='home.html'">
+
+    <span>🏠</span>
+
+    Home
+
+</div>
+
+
+<div
+    class="nav-item active"
+    onclick="location.href='friends.html'">
+
+    <span>👥</span>
+
+    Friends
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='create.html'">
+
+    <span>➕</span>
+
+    Create
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='message.html'">
+
+    <span>💬</span>
+
+    Messages
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='profile.html'">
+
+    <span>👤</span>
+
+    Profile
+
+</div>
+
+</div><script>
+
+
+/* GET FRIEND ID */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const friendId =
+    Number(
+        params.get("id")
+    );
+
+
+let friends =
+    JSON.parse(
+
+        localStorage.getItem(
+            "hopeSharonFriends"
+        ) || "[]"
+
+    );
+
+
+let friend =
+    friends.find(
+        function(item) {
+
+            return item.id === friendId;
+
+        }
+    );
+
+
+/* DISPLAY FRIEND */
+
+function displayFriend() {
+
+    if (!friend) {
+
+        document.getElementById(
+            "friendName"
+        ).textContent =
+            "Friend not found";
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "friendName"
+    ).textContent =
+        friend.name;
+
+
+    document.getElementById(
+        "friendBio"
+    ).textContent =
+
+        friend.name +
+        " is a friend of Hope & Sharon. ❤️";
+
+
+    if (friend.photo) {
+
+        document.getElementById(
+            "profilePicture"
+        ).src =
+            friend.photo;
+
+    }
+
+}
+
+
+/* CHANGE PHOTO */
+
+document.getElementById(
+    "photoInput"
+).addEventListener(
+    "change",
+    function(event) {
+
+        const file =
+            event.target.files[0];
+
+
+        if (!file || !friend) {
+
+            return;
+
+        }
+
+
+        if (
+            !file.type.startsWith(
+                "image/"
+            )
+        ) {
+
+            alert(
+                "Please choose an image."
+            );
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(e) {
+
+                friend.photo =
+                    e.target.result;
+
+
+                friends =
+                    friends.map(
+                        function(item) {
+
+                            if (
+                                item.id ===
+                                friendId
+                            ) {
+
+                                return friend;
+
+                            }
+
+                            return item;
+
+                        }
+                    );
+
+
+                localStorage.setItem(
+
+                    "hopeSharonFriends",
+
+                    JSON.stringify(
+                        friends
+                    )
+
+                );
+
+
+                document.getElementById(
+                    "profilePicture"
+                ).src =
+                    friend.photo;
+
+
+                alert(
+                    "Profile photo saved ❤️"
+                );
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* MESSAGE */
+
+function sendMessage() {
+
+    if (!friend) {
+
+        return;
+
+    }
+
+
+    location.href =
+        "message.html?friend=" +
+        encodeURIComponent(
+            friend.name
+        );
+
+}
+
+
+/* REMOVE */
+
+function removeFriend() {
+
+    if (!friend) {
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+
+            "Remove " +
+            friend.name +
+            " as a friend?"
+
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    friends =
+        friends.filter(
+            function(item) {
+
+                return item.id !== friendId;
+
+            }
+        );
+
+
+    localStorage.setItem(
+
+        "hopeSharonFriends",
+
+        JSON.stringify(
+            friends
+        )
+
+    );
+
+
+    location.href =
+        "friends.html";
+
+}
+
+
+/* START */
+
+displayFriend();
+
+</script></body></html>

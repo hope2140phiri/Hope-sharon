@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Hope & Sharon</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    height: 60px;
+    background: #ff1493;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 23px;
+}
+
+.icon-button {
+    position: relative;
+    cursor: pointer;
+}
+
+
+/* NOTIFICATION BADGE */
+
+.notification-badge {
+    display: none;
+
+    position: absolute;
+
+    top: -8px;
+    right: -9px;
+
+    background: red;
+    color: white;
+
+    min-width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    font-size: 10px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px;
+}
+
+
+/* PROFILE */
+
+.profile {
+    background: white;
+    margin-bottom: 10px;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 180px;
+
+    background-image: url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.profile-info {
+    text-align: center;
+    padding: 15px;
+}
+
+.profile-pic {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 4px solid white;
+
+    margin-top: -55px;
+
+    background: white;
+}
+
+.profile-info h2 {
+    margin-top: 5px;
+}
+
+.profile-info p {
+    color: #777;
+    margin-top: 5px;
+}
+
+
+/* QUICK BUTTONS */
+
+.quick-buttons {
+    background: white;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    padding: 15px 5px;
+
+    margin-bottom: 10px;
+}
+
+.quick-button {
+    text-align: center;
+
+    cursor: pointer;
+
+    color: #444;
+
+    font-size: 12px;
+}
+
+.quick-button span {
+    display: block;
+
+    font-size: 25px;
+
+    margin-bottom: 4px;
+}
+
+
+/* WELCOME */
+
+.welcome {
+    background: white;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.welcome h3 {
+    color: #ff1493;
+
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #555;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+
+    <div class="logo">
+
+        Hope & Sharon ❤️
+
+    </div>
+
+
+    <div class="icons">
+
+
+        <!-- NOTIFICATIONS -->
+
+        <div
+            class="icon-button"
+            onclick="location.href='notifications.html'">
+
+            🔔
+
+
+            <span
+                id="notificationBadge"
+                class="notification-badge">
+
+                0
+
+            </span>
+
+        </div>
+
+
+        <!-- MESSAGES -->
+
+        <div
+            class="icon-button"
+            onclick="location.href='message.html'">
+
+            💬
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <div
+            class="icon-button"
+            onclick="location.href='menu.html'">
+
+            ☰
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+
+    <div class="cover-photo"></div>
+
+
+    <div class="profile-info">
+
+
+        <img
+            src="background.jpg"
+            class="profile-pic"
+            alt="Hope and Sharon">
+
+
+        <h2>
+
+            Hope & Sharon ❤️
+
+        </h2>
+
+
+        <p>
+
+            Our Love Story 💕
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- QUICK BUTTONS -->
+
+<div class="quick-buttons">
+
+
+    <div
+        class="quick-button"
+        onclick="location.href='home.html'">
+
+        <span>🏠</span>
+
+        Home
+
+    </div>
+
+
+    <div
+        class="quick-button"
+        onclick="location.href='friends.html'">
+
+        <span>👥</span>
+
+        Friends
+
+    </div>
+
+
+    <div
+        class="quick-button"
+        onclick="location.href='message.html'">
+
+        <span>💬</span>
+
+        Messages
+
+    </div>
+
+
+    <div
+        class="quick-button"
+        onclick="location.href='gallery.html'">
+
+        <span>📸</span>
+
+        Gallery
+
+    </div>
+
+
+    <div
+        class="quick-button"
+        onclick="location.href='profile.html'">
+
+        <span>👤</span>
+
+        Profile
+
+    </div>
+
+</div>
+
+
+<!-- WELCOME -->
+
+<div class="welcome">
+
+    <h3>
+
+        Welcome to Hope & Sharon ❤️
+
+    </h3>
+
+
+    <p>
+
+        Our special place to share
+        memories, messages and love. 💕
+
+    </p>
+
+</div>
+
+
+<script>
+
+
+/* NOTIFICATION BADGE */
+
+function updateNotificationBadge() {
+
+
+    const friends =
+        JSON.parse(
+
+            localStorage.getItem(
+                "hopeSharonFriends"
+            ) || "[]"
+
+        );
+
+
+    let total = 0;
+
+
+    friends.forEach(
+        function(friend) {
+
+
+            const messages =
+                JSON.parse(
+
+                    localStorage.getItem(
+                        "hopeSharonMessages_" +
+                        friend.id
+                    ) || "[]"
+
+                );
+
+
+            total +=
+                messages.filter(
+
+                    function(message) {
+
+                        return (
+                            message.sender ===
+                            "friend"
+                        );
+
+                    }
+
+                ).length;
+
+        }
+    );
+
+
+    const badge =
+        document.getElementById(
+            "notificationBadge"
+        );
+
+
+    if (total > 0) {
+
+
+        badge.textContent =
+            total > 99
+            ? "99+"
+            : total;
+
+
+        badge.style.display =
+            "flex";
+
+
+    } else {
+
+
+        badge.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* START */
+
+updateNotificationBadge();
+
+
+</script>
+
+
+</body>
+
+</html>

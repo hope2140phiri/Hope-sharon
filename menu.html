@@ -1,0 +1,598 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0"><title>Menu - Hope & Sharon</title><style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    padding-bottom: 70px;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    height: 60px;
+
+    background: #ff1493;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+.back {
+    font-size: 28px;
+
+    margin-right: 15px;
+
+    cursor: pointer;
+}
+
+.title {
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+
+/* ACCOUNT HEADER */
+
+.account {
+    background: white;
+
+    padding: 18px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-bottom: 1px solid #ddd;
+
+    cursor: pointer;
+}
+
+.account img {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    margin-right: 13px;
+}
+
+.account-name {
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+.account-text {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 4px;
+}
+
+
+/* MENU */
+
+.menu {
+    margin-top: 10px;
+
+    background: white;
+}
+
+.menu-item {
+    display: flex;
+
+    align-items: center;
+
+    padding: 16px;
+
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #f8f8f8;
+}
+
+.menu-icon {
+    width: 45px;
+
+    font-size: 25px;
+
+    text-align: center;
+
+    margin-right: 10px;
+}
+
+.menu-info {
+    flex: 1;
+}
+
+.menu-title {
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.menu-description {
+    color: #777;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+.arrow {
+    color: #999;
+
+    font-size: 20px;
+}
+
+
+/* LOGOUT */
+
+.logout {
+    margin-top: 10px;
+
+    background: white;
+
+    color: #e6005c;
+
+    font-weight: bold;
+
+    padding: 17px;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+
+/* BOTTOM NAV */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 60px;
+
+    background: white;
+
+    border-top: 1px solid #ddd;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    z-index: 100;
+}
+
+.nav-item {
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #555;
+
+    cursor: pointer;
+}
+
+.nav-item span {
+    display: block;
+
+    font-size: 22px;
+}
+
+.nav-item.active {
+    color: #ff1493;
+
+    font-weight: bold;
+}
+
+</style></head><body><!-- TOP BAR --><div class="topbar"><div
+    class="back"
+    onclick="location.href='home.html'">
+
+    ←
+
+</div>
+
+<div class="title">
+
+    Menu ☰
+
+</div>
+
+</div><!-- ACCOUNT --><div
+    class="account"
+    onclick="location.href='profile.html'"><img
+    src="background.jpg"
+    alt="Hope & Sharon">
+
+<div>
+
+    <div class="account-name">
+
+        Hope & Sharon ❤️
+
+    </div>
+
+    <div class="account-text">
+
+        View your profile
+
+    </div>
+
+</div>
+
+</div><!-- MENU ITEMS --><div class="menu"><!-- PROFILE -->
+
+<div
+    class="menu-item"
+    onclick="location.href='profile.html'">
+
+    <div class="menu-icon">
+        👤
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Profile
+        </div>
+
+        <div class="menu-description">
+            View and edit your profile
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+
+<!-- FRIENDS -->
+
+<div
+    class="menu-item"
+    onclick="location.href='friends.html'">
+
+    <div class="menu-icon">
+        👥
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Friends
+        </div>
+
+        <div class="menu-description">
+            Find and manage friends
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+
+<!-- MESSAGES -->
+
+<div
+    class="menu-item"
+    onclick="location.href='message.html'">
+
+    <div class="menu-icon">
+        💬
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Messages
+        </div>
+
+        <div class="menu-description">
+            Chat with your friends
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div
+    class="menu-item"
+    onclick="location.href='notifications.html'">
+
+    <div class="menu-icon">
+        🔔
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Notifications
+        </div>
+
+        <div class="menu-description">
+            See your latest notifications
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+
+<!-- GALLERY -->
+
+<div
+    class="menu-item"
+    onclick="location.href='gallery.html'">
+
+    <div class="menu-icon">
+        🖼️
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Gallery
+        </div>
+
+        <div class="menu-description">
+            Photos and videos
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div
+    class="menu-item"
+    onclick="settings()">
+
+    <div class="menu-icon">
+        ⚙️
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Settings
+        </div>
+
+        <div class="menu-description">
+            Manage your account
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+
+<!-- PRIVACY -->
+
+<div
+    class="menu-item"
+    onclick="privacy()">
+
+    <div class="menu-icon">
+        🔒
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Privacy
+        </div>
+
+        <div class="menu-description">
+            Control your privacy
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+
+<!-- HELP -->
+
+<div
+    class="menu-item"
+    onclick="help()">
+
+    <div class="menu-icon">
+        ❓
+    </div>
+
+    <div class="menu-info">
+
+        <div class="menu-title">
+            Help & Support
+        </div>
+
+        <div class="menu-description">
+            Get help with Hope & Sharon
+        </div>
+
+    </div>
+
+    <div class="arrow">
+        ›
+    </div>
+
+</div>
+
+</div><!-- LOGOUT --><div
+    class="logout"
+    onclick="logout()">🚪 Log Out
+
+</div><!-- BOTTOM NAV --><div class="bottom-nav"><div
+    class="nav-item"
+    onclick="location.href='home.html'">
+
+    <span>🏠</span>
+
+    Home
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='friends.html'">
+
+    <span>👥</span>
+
+    Friends
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='create.html'">
+
+    <span>➕</span>
+
+    Create
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="location.href='message.html'">
+
+    <span>💬</span>
+
+    Messages
+
+</div>
+
+
+<div
+    class="nav-item active">
+
+    <span>☰</span>
+
+    Menu
+
+</div>
+
+</div><script>
+
+
+function settings() {
+
+    alert(
+        "⚙️ Settings\n\n" +
+        "Account settings will be added here."
+    );
+
+}
+
+
+function privacy() {
+
+    alert(
+        "🔒 Privacy\n\n" +
+        "Privacy controls will be added here."
+    );
+
+}
+
+
+function help() {
+
+    alert(
+        "❓ Help & Support\n\n" +
+        "Welcome to Hope & Sharon.\n\n" +
+        "More help options will be added here."
+    );
+
+}
+
+
+function logout() {
+
+    const confirmLogout =
+        confirm(
+            "Are you sure you want to log out?"
+        );
+
+    if (confirmLogout) {
+
+        location.href = "login.html";
+
+    }
+
+}
+
+</script></body>
+</html>
