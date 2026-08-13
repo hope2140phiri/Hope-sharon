@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Surprise for Sharon ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+
+    background:
+        radial-gradient(circle at top, #ffb6d9, transparent 45%),
+        linear-gradient(135deg, #ff1493, #8a2be2);
+
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    width: 92%;
+    max-width: 650px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.gift-area {
+    cursor: pointer;
+    user-select: none;
+}
+
+.gift {
+    position: relative;
+    width: 150px;
+    height: 130px;
+    margin: 40px auto 25px;
+
+    background: #ff1493;
+    border-radius: 8px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.3);
+
+    transition: transform .4s;
+}
+
+.gift:hover {
+    transform: scale(1.08);
+}
+
+.gift::before {
+    content: "";
+    position: absolute;
+
+    width: 30px;
+    height: 130px;
+
+    background: #ffd700;
+
+    left: 60px;
+    top: 0;
+}
+
+.gift::after {
+    content: "";
+
+    position: absolute;
+
+    width: 175px;
+    height: 30px;
+
+    background: #ff1493;
+
+    left: -12px;
+    top: -15px;
+
+    border-radius: 8px;
+}
+
+.ribbon {
+    position: absolute;
+
+    width: 35px;
+    height: 35px;
+
+    border: 7px solid #ffd700;
+
+    border-radius: 50%;
+
+    top: -45px;
+}
+
+.ribbon.left {
+    left: 38px;
+    transform: rotate(-25deg);
+}
+
+.ribbon.right {
+    right: 38px;
+    transform: rotate(25deg);
+}
+
+.tap {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.message {
+    display: none;
+
+    background: rgba(255,255,255,.96);
+    color: #4a1731;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.3);
+
+    animation: appear 1s ease;
+}
+
+.message h2 {
+    color: #ff1493;
+    font-size: 30px;
+}
+
+.message p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.heart {
+    position: fixed;
+
+    font-size: 25px;
+
+    animation: float 5s linear forwards;
+
+    pointer-events: none;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+a {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border-radius: 25px;
+
+    background: #ff1493;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎁 A Special Surprise 🎁</h1>
+
+    <div class="subtitle">
+        Sharon, something special is waiting for you... ❤️
+    </div>
+
+    <div class="gift-area" onclick="openGift()">
+
+        <div class="gift">
+
+            <div class="ribbon left"></div>
+            <div class="ribbon right"></div>
+
+        </div>
+
+        <div class="tap">
+            👆 Tap the gift to open it
+        </div>
+
+    </div>
+
+
+    <div class="message" id="message">
+
+        <h2>❤️ For Sharon ❤️</h2>
+
+        <p>
+            Sharon, you are one of the most beautiful parts of my story.
+        </p>
+
+        <p>
+            Every memory, every smile, every conversation and every moment
+            we've shared has become a special page in my heart.
+        </p>
+
+        <p>
+            I may not always have the perfect words, but I want you to know
+            that you are deeply appreciated and that our story means a lot to me.
+        </p>
+
+        <p>
+            Whatever happens tomorrow, I will always be grateful for the
+            memories we have created together.
+        </p>
+
+        <p>
+            <strong>
+                ❤️ From Hope, with love ❤️
+            </strong>
+        </p>
+
+        <div class="buttons">
+
+            <a href="chapters.html">
+                📖 Back to Our Story
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openGift() {
+
+    document.querySelector(".gift-area").style.display = "none";
+
+    document.getElementById("message").style.display = "block";
+
+    createHearts();
+
+}
+
+function createHearts() {
+
+    for (let i = 0; i < 30; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = Math.random() > .5 ? "❤️" : "💕";
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+        heart.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 8000);
+    }
+}
+
+</script>
+
+</body>
+</html>
